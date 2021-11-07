@@ -42,5 +42,7 @@ jobs:
         python --version
         pip --version
         sh -c "[ x$LIBMEMCACHED_VERSION = x$(python -c 'import pylibmc; print(pylibmc.libmemcached_version)') ]"
+    - name: Install package
+      run: python setup.py install
     - name: Run test
       run: python bin/runtests.py -v tests --with-doctest
