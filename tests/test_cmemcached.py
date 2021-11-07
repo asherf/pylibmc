@@ -45,7 +45,8 @@ class TestCmemcached(PylibmcTestCase):
         eq_(result, {'a': 'valueA', 'b': 'valueB', 'c': 'valueC'})
 
     def testBigGetMulti(self):
-        count = 10 ** 4
+        # count = 10 ** 4
+        count = 10 ** 3
         # Python 2: .encode() is a no-op on these byte strings since they
         # only contain bytes that can be implicitly decoded as ASCII.
         keys = ['key%d' % i for i in range(count)]
@@ -55,9 +56,7 @@ class TestCmemcached(PylibmcTestCase):
         for key, value in pairs:
             d[key] = value
             self.mc.set(key, value)
-        print("POP_DEBUG TEST: ", keys)
         result = self.mc.get_multi(keys)
-        print("POP_DEBUG RESULT: ", result)
         eq_(result, d)
 
     def testFunnyDelete(self):
