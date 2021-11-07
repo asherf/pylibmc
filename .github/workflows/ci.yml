@@ -26,7 +26,6 @@ jobs:
           - 11211:11211
         options: >-
           --memory 256m
-          -- -m 128m
     steps:
     - uses: actions/checkout@v2
       with:
