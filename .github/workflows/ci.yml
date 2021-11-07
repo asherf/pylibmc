@@ -24,8 +24,6 @@ jobs:
         image: memcached:1.6.12
         ports:
           - 11211:11211
-        options: >-
-          --memory 256m
     steps:
     - uses: actions/checkout@v2
       with:
@@ -51,7 +49,10 @@ jobs:
         python --version
         pip --version
         python -c 'import pylibmc; print(pylibmc.libmemcached_version)'
-    # - name: Run test
-    #   run: python bin/runtests.py -v tests --with-doctest -s
+    - name: Set LIBMEMCACHED_VERSION
+      run: echo LIBMEMCACHED_VERSION_B="$(python -c 'import pylibmc; print(pylibmc.libmemcached_version)')" >> $GITHUB_ENV
+    - name: show ver
+      run: echo "HELLO ${LIBMEMCACHED_VERSION_B}"
     - name: Run test
-      run: python bin/runtests.py -v tests/test_cmemcached.py
+      run: python bin/runtests.py -v tests --with-doctest
+    
