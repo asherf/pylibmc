@@ -41,7 +41,7 @@ jobs:
         sudo apt-get install libmemcached-dev
         apt-cache show libmemcached-dev
     - name: nc help
-      run: netcat --help
+      run: netcat -h
     - name: memcached stats
       run: echo "stats settings" | nc localhost 11211
     - name: Install package
