@@ -24,6 +24,8 @@ jobs:
         image: memcached:1.6.12
         ports:
           - 11211:11211
+        options: >-
+          --memory 256m
     steps:
     - uses: actions/checkout@v2
       with:
