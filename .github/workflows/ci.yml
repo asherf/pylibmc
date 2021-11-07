@@ -26,6 +26,7 @@ jobs:
           - 11211:11211
         options: >-
           --memory 256m
+          -- -m 128m
     steps:
     - uses: actions/checkout@v2
       with:
@@ -40,6 +41,8 @@ jobs:
         sudo apt-get update -qq
         sudo apt-get install libmemcached-dev
         apt-cache show libmemcached-dev
+    - name: nc help
+      run: nc --help
     - name: memcached stats
       run: echo "stats settings" | nc localhost 11211
     - name: Install package
@@ -52,4 +55,4 @@ jobs:
     # - name: Run test
     #   run: python bin/runtests.py -v tests --with-doctest -s
     - name: Run test
-      run: python bin/runtests.py -v tests/test_cmemcached.py  --nocapture
+      run: python bin/runtests.py -v tests/test_cmemcached.py
