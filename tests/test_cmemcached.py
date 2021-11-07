@@ -55,9 +55,9 @@ class TestCmemcached(PylibmcTestCase):
         for key, value in pairs:
             d[key] = value
             self.mc.set(key, value)
-        print("DEBUG TEST: ", keys)
+        print("POP_DEBUG TEST: ", keys)
         result = self.mc.get_multi(keys)
-        print("DEBUG RESULT: ", result)
+        print("POP_DEBUG RESULT: ", result)
         eq_(result, d)
 
     def testFunnyDelete(self):
