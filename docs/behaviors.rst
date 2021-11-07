@@ -60,7 +60,7 @@ libmemcached behavior constants.
 .. _no_block:
 
 ``"no_block"``
-   Enables asychronous I/O. This is the fastest transport available for storage
+   Enables asynchronous I/O. This is the fastest transport available for storage
    functions.
 
 .. _tcp_nodelay:

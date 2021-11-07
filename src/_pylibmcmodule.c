@@ -2261,7 +2261,7 @@ static PyObject *PylibMC_Client_get_stats(PylibMC_Client *self, PyObject *args) 
 
     if (rc != MEMCACHED_SUCCESS) {
         if (!PyErr_Occurred())
-            PyErr_SetString(PyExc_RuntimeError, "unknown error occured");
+            PyErr_SetString(PyExc_RuntimeError, "unknown error occurred");
         Py_DECREF(context.retval);
         context.retval = NULL;
     }
