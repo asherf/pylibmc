@@ -40,8 +40,8 @@ jobs:
         sudo apt-get update -qq
         sudo apt-get install libmemcached-dev
         apt-cache show libmemcached-dev
-    # - name: memcached stats
-    #   run: echo "stats settings" | nc localhost 11211
+    - name: memcached stats
+      run: echo "stats settings" | nc localhost 11211
     - name: Install package
       run: python setup.py install
     - name: Log versions
