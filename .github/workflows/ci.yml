@@ -19,7 +19,7 @@ jobs:
     name: "${{ matrix.os }} Python: ${{ matrix.python-version }}"
     services:
       memcached:
-        image: memcached:1.0.18
+        image: memcached:1.6.12
         ports:
           - 11211:11211
     steps:
