@@ -47,5 +47,7 @@ jobs:
         python --version
         pip --version
         python -c 'import pylibmc; print(pylibmc.libmemcached_version)'
+    # - name: Run test
+    #   run: python bin/runtests.py -v tests --with-doctest -s
     - name: Run test
-      run: python bin/runtests.py -v tests --with-doctest -s
+      run: python bin/runtests.py -v tests/test_cmemcached.py  --nocapture
