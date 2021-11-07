@@ -43,7 +43,7 @@ jobs:
     - name: nc help
       run: netcat -h
     - name: memcached stats
-      run: echo "stats settings" | nc localhost 11211
+      run: echo "stats settings" | netcat localhost 11211 -w 3
     - name: Install package
       run: python setup.py install
     - name: Log versions
